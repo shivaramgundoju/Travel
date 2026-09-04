@@ -6,7 +6,7 @@ import { trips } from "../data/trips";
 import { stories } from "../data/stories";
 import { alt, photo } from "../data/images";
 import { OptimizedImage } from "../components/OptimizedImage";
-import { usePageMeta, usePrefersReducedMotion } from "../lib/hooks";
+import { usePageMeta } from "../lib/hooks";
 import { Reveal } from "../components/Reveal";
 import { SectionHeading } from "../components/SectionHeading";
 import { Button } from "../components/Button";
@@ -20,71 +20,13 @@ import { DestinationPanels, DestinationMarquee } from "../components/sections";
 const CATEGORIES = ["Heritage", "Food", "Nature", "Adventure", "Culture", "Weekend Escapes"];
 
 function HomeHero() {
-  const reduced = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const t = window.setTimeout(() => setMounted(true), 60);
     return () => window.clearTimeout(t);
   }, []);
-
-  // Scroll-linked parallax: content fades + lifts, watermark fades
-  useEffect(() => {
-    if (reduced) return;
-    const section = sectionRef.current;
-    if (!section) return;
-
-    let currentProgress = 0;
-    let targetProgress = 0;
-    let raf = 0;
-
-    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-
-    const update = () => {
-      currentProgress = lerp(currentProgress, targetProgress, 0.08);
-
-      if (Math.abs(targetProgress - currentProgress) < 0.001) {
-        currentProgress = targetProgress;
-      }
-
-      if (textRef.current) {
-        textRef.current.style.opacity = String(0.06 * Math.max(0, 1 - currentProgress * 2.5));
-      }
-      if (contentRef.current) {
-        const opacity = Math.max(0, 1 - currentProgress * 2.8);
-        const translateY = currentProgress * -30;
-        const scale = 1 - currentProgress * 0.06;
-        contentRef.current.style.opacity = String(opacity);
-        contentRef.current.style.transform = `translateY(${translateY}px) scale(${scale})`;
-      }
-
-      if (Math.abs(targetProgress - currentProgress) > 0.001) {
-        raf = requestAnimationFrame(update);
-      } else {
-        raf = 0;
-      }
-    };
-
-    const onScroll = () => {
-      const rect = section.getBoundingClientRect();
-      const total = rect.height - window.innerHeight;
-      if (total <= 0) return;
-      targetProgress = Math.min(1, Math.max(0, -rect.top / total));
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, [reduced]);
 
   const navigate = useNavigate();
 
@@ -99,7 +41,7 @@ function HomeHero() {
     <section ref={sectionRef} className={`section-hero ${mounted ? "hero-anim" : ""}`}>
       <div className="hero-wrapper">
         {/* Giant watermark text */}
-        <div ref={textRef} className="hero-text-wrapper" aria-hidden="true">
+        <div className="hero-text-wrapper" aria-hidden="true">
           <div className="hero-large-text">INDIA</div>
         </div>
 
@@ -109,7 +51,7 @@ function HomeHero() {
             <OptimizedImage imageKey="hero" width={1800} priority className="hero-image" sizes="100vw" altText={alt("hero")} style={{ position: "absolute", inset: 0 }} />
             <div className="hero-image-overlay" />
           </div>
-          <div ref={contentRef} className="hero-content-wrapper">
+          <div className="hero-content-wrapper">
             <p className="hero-subtitle">Explore India, Beautifully</p>
             <div className="hero-heading-wrapper">
               <h1 className="hero-title">
