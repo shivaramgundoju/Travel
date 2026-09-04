@@ -488,21 +488,33 @@
   }
 
   .destination-index-card {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
     border-radius: var(--radius-l);
   }
 
   .destination-index-content {
     padding: var(--space-m);
+    padding-bottom: var(--space-l);
   }
 
   .destination-index-name {
-    font-size: 22px;
+    font-size: 20px;
+    line-height: 1.2;
   }
 
   .destination-index-desc {
     font-size: 13px;
+    line-height: 1.45;
     -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+
+  .destination-index-arrow {
+    margin-top: 10px;
+    font-size: 12px;
   }
 
   .form-grid-2 {

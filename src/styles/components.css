@@ -3525,46 +3525,69 @@
     height: 100svh;
   }
 
+  .hero-main-content-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
   .hero-content-wrapper {
-    padding-bottom: 28vh;
+    padding-bottom: 24vh;
     padding-left: var(--gutter);
     padding-right: var(--gutter);
+    justify-content: center;
+    align-items: center;
   }
 
   .hero-title {
-    font-size: clamp(32px, 10vw, 52px);
+    font-size: clamp(30px, 9vw, 48px);
     letter-spacing: 0;
+    line-height: 1.05;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: manual;
+  }
+
+  .hero-title .hero-title-line {
+    display: block;
+    max-width: 100%;
   }
 
   .hero-title .hero-title-line.is-accent {
     font-size: 0.55em;
+    margin-top: 0.3em;
   }
 
   .hero-subtitle {
-    font-size: 11px;
-    letter-spacing: 0.25em;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    margin-bottom: 8px;
+    text-align: center;
   }
 
   .hero-summary-block {
     max-width: 100%;
+    margin-top: var(--space-l);
+    text-align: center;
   }
 
   .hero-summary-block p {
     font-size: var(--fs-small);
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
   .hero-search-form-block {
-    bottom: 18vh;
+    bottom: 16vh;
     padding-inline: 12px;
   }
 
   .search-form-block {
     border-radius: 16px;
-    padding: 14px;
+    padding: 16px;
     flex-direction: column;
     gap: 0;
     max-width: 100%;
+    background-color: rgba(11, 11, 11, 0.55);
   }
 
   .search-form-block form {
@@ -3574,22 +3597,26 @@
   }
 
   .filter-field-block {
-    padding: 10px 0;
+    padding: 12px 0;
   }
 
   .filter-field-subtitle {
     font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2px;
   }
 
   .filter-field-block select,
   .filter-field-block input {
     font-size: 15px;
+    min-height: 36px;
+    width: 100%;
   }
 
   .filter-devider {
     width: 100%;
     height: 1px;
-    background-color: var(--color-line);
+    background-color: rgba(255, 255, 255, 0.15);
   }
 
   .filter-submit-button {
@@ -3600,12 +3627,13 @@
   }
 
   .hero-cta-button {
-    bottom: 4vh;
+    bottom: 5vh;
   }
 
   .hero-cta-icon-block {
     width: 48px;
     height: 48px;
+    border-color: rgba(255, 255, 255, 0.25);
   }
 
   .hero-cta-text {
@@ -3669,10 +3697,16 @@
 
   .packages-card_image-wrap {
     aspect-ratio: 16 / 10;
+    display: block;
   }
 
   .packages-card_body {
     padding: var(--space-l);
+  }
+
+  .packages-card_title {
+    font-size: 20px;
+    line-height: 1.25;
   }
 
   .packages-card_footer {
@@ -3688,19 +3722,27 @@
 
   .experience-card {
     border-radius: var(--radius-l);
+    aspect-ratio: 4 / 3;
   }
 
   .experience-card-content {
     padding: var(--space-l);
+    padding-bottom: var(--space-m);
+  }
+
+  .experience-card-title {
+    font-size: 20px;
+    line-height: 1.2;
   }
 
   .experience-card-meta {
     flex-wrap: wrap;
-    gap: 6px var(--space-s);
+    gap: 4px var(--space-s);
+    margin-top: 8px;
   }
 
   .experience-card-meta span {
-    font-size: var(--fs-xs);
+    font-size: 12px;
   }
 
   .journal-card {
@@ -3708,7 +3750,17 @@
   }
 
   .journal-card-title {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .journal-card-excerpt {
+    font-size: 13px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   /* ---- Places grid ---- */
@@ -3906,20 +3958,29 @@
   .page-hero {
     min-height: 56vh;
     padding-top: 120px;
+    padding-bottom: var(--space-4xl);
+  }
+
+  .page-hero-content {
+    width: 100%;
   }
 
   .page-hero-title {
-    font-size: clamp(28px, 8vw, 44px);
+    font-size: clamp(26px, 7.5vw, 40px);
+    line-height: 1.05;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .page-hero-tagline {
     font-size: var(--fs-small);
-    line-height: 1.5;
+    line-height: 1.55;
+    max-width: 100%;
   }
 
   .page-hero-chip {
     font-size: 11px;
-    padding: 6px 12px;
+    padding: 6px 14px;
   }
 
   .page-hero-meta {
@@ -3934,7 +3995,10 @@
   }
 
   .dd-hero-name {
-    font-size: clamp(36px, 10vw, 60px);
+    font-size: clamp(32px, 9vw, 52px);
+    line-height: 1.05;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   /* ---- Breadcrumbs ---- */
@@ -4218,19 +4282,33 @@
   }
 
   .hero-content-wrapper {
-    padding-bottom: 32vh;
+    padding-bottom: 26vh;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .hero-title {
-    font-size: clamp(28px, 9vw, 42px);
+    font-size: clamp(26px, 8.5vw, 40px);
+    letter-spacing: -0.01em;
   }
 
-  .hero-title-line.is-accent {
+  .hero-title .hero-title-line.is-accent {
     font-size: 0.5em;
   }
 
+  .hero-subtitle {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-summary-block p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
   .hero-search-form-block {
-    bottom: 16vh;
+    bottom: 14vh;
+    padding-inline: 10px;
   }
 
   .search-form-block {
