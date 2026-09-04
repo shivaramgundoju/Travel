@@ -1,0 +1,488 @@
+/* ============================================================
+   YATRAA — Design tokens & base styles
+   Design language adapted from the Tenonis reference:
+   warm editorial neutrals, serif display type, cinematic imagery
+   ============================================================ */
+
+:root {
+  /* Typography */
+  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Gilda Display", serif;
+
+  /* Colors */
+  --color-bg: #f7f4ed; /* warm off-white */
+  --color-bg-deep: #efe9dc; /* deeper warm sand */
+  --color-ink: #151412; /* near-black warm charcoal */
+  --color-ink-soft: #5d574e; /* secondary text */
+  --color-ink-faint: #9b9387; /* tertiary / muted */
+  --color-line: #e3dccd; /* hairline borders on light */
+  --color-accent: #bf5b39; /* terracotta */
+  --color-accent-dark: #a34a2c;
+  --color-pine: #0d2a23; /* deep forest green */
+  --color-pine-2: #13362d;
+  --color-pine-soft: #1c4439;
+  --color-black: #0b0b0b;
+  --color-white: #ffffff;
+  --color-whatsapp: #1fae54;
+  --color-whatsapp-dark: #179a48;
+
+  /* Spacing scale */
+  --space-2xs: 6px;
+  --space-xs: 10px;
+  --space-s: 16px;
+  --space-m: 20px;
+  --space-l: 24px;
+  --space-xl: 30px;
+  --space-2xl: 40px;
+  --space-3xl: 50px;
+  --space-4xl: 64px;
+  --space-5xl: 80px;
+  --space-6xl: 100px;
+  --space-7xl: 140px;
+
+  /* Section padding */
+  --section-pad: 100px;
+  --section-pad-lg: 140px;
+
+  /* Radius */
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+
+  /* Type scale */
+  --fs-h1: clamp(44px, 5.2vw, 68px);
+  --fs-h2: clamp(32px, 3.4vw, 44px);
+  --fs-h3: clamp(24px, 2.2vw, 28px);
+  --fs-h4: 24px;
+  --fs-h5: 20px;
+  --fs-body: 16px;
+  --fs-body-lg: 18px;
+  --fs-small: 14px;
+  --fs-xs: 12px;
+
+  /* Line heights */
+  --lh-tight: 1.05;
+  --lh-heading: 1.15;
+  --lh-body: 1.6;
+  --lh-soft: 1.4;
+
+  /* Container */
+  --container: 1000px;
+  --gutter: 24px;
+
+  /* Effects */
+  --shadow-card: 0 2px 12px rgba(21, 20, 18, 0.06), 0 1px 3px rgba(21, 20, 18, 0.05);
+  --shadow-lift: 0 18px 40px rgba(21, 20, 18, 0.12);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: var(--lh-heading);
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Layout ---------- */
+.container-large {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-pad);
+  position: relative;
+}
+
+.section-lg {
+  padding-block: var(--section-pad-lg);
+}
+
+.section-dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* ---------- Typography helpers ---------- */
+.heading-style-h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.heading-style-h2.text-color-white,
+.text-color-white .heading-style-h2 {
+  color: var(--color-white);
+}
+
+.heading-style-h3 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.highlight-italic {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.text-color-white {
+  color: var(--color-white);
+}
+
+.text-color-accent {
+  color: var(--color-accent);
+}
+
+.text-color-soft {
+  color: var(--color-ink-soft);
+}
+
+.text-color-faint {
+  color: var(--color-ink-faint);
+}
+
+.text-size-medium {
+  font-size: var(--fs-body-lg);
+}
+
+.text-size-regular {
+  font-size: var(--fs-body);
+}
+
+.text-size-small {
+  font-size: var(--fs-small);
+}
+
+.text-size-tiny {
+  font-size: var(--fs-xs);
+}
+
+.text-weight-semibold {
+  font-weight: 600;
+}
+
+.text-weight-bold {
+  font-weight: 700;
+}
+
+.text-style-allcaps {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.max-width-350px {
+  max-width: 350px;
+}
+
+.max-width-400px {
+  max-width: 400px;
+}
+
+.max-width-500px {
+  max-width: 500px;
+}
+
+.max-width-550px {
+  max-width: 550px;
+}
+
+/* ---------- Section headings ---------- */
+.section-subtitle-block {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.subtitle-border-line {
+  background-color: var(--color-accent);
+  width: 30px;
+  height: 2px;
+  flex: none;
+}
+
+.subtitle-border-line.white {
+  background-color: var(--color-white);
+}
+
+.section-subtitle {
+  color: var(--color-accent);
+  font-size: var(--fs-xs);
+  line-height: 1.2;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+.section-subtitle.white {
+  color: var(--color-white);
+}
+
+.section-title-block.margin-top-16px {
+  margin-top: var(--space-s);
+}
+
+.section-summary-block.margin-top-16px {
+  margin-top: var(--space-s);
+}
+
+.section-summary-block.margin-top-16px.padding-left-20px {
+  padding-left: var(--space-m);
+  border-left: 2px solid var(--color-accent);
+}
+
+.section-heading-block.align-center {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.section-heading-block.align-center .section-summary-block {
+  max-width: 520px;
+}
+
+.section-heading-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-l);
+  flex-wrap: wrap;
+}
+
+.section-heading-flex .section-heading-block {
+  max-width: 620px;
+}
+
+/* ---------- Utilities ---------- */
+.margin-top-16px {
+  margin-top: var(--space-s);
+}
+
+.margin-top-24px {
+  margin-top: var(--space-l);
+}
+
+.margin-top-30px {
+  margin-top: var(--space-xl);
+}
+
+.margin-top-50px {
+  margin-top: var(--space-3xl);
+}
+
+.margin-top-80px {
+  margin-top: var(--space-5xl);
+}
+
+.padding-section-large-3 {
+  padding-top: var(--space-6xl);
+  padding-bottom: var(--space-6xl);
+}
+
+.padding-top-0 {
+  padding-top: 0;
+}
+
+.padding-bottom-0 {
+  padding-bottom: 0;
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-fade.is-visible {
+  opacity: 1;
+}
+
+/* ---------- Mobile base ---------- */
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Prevent horizontal scroll */
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Larger touch targets */
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+
+  /* Smooth scroll snapping for horizontal carousels */
+  .horizontal-scroll {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Safe area insets for notched phones */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .footer {
+    padding-bottom: calc(var(--space-2xl) + env(safe-area-inset-bottom));
+  }
+
+  .hero-cta-button {
+    bottom: calc(4vh + env(safe-area-inset-bottom));
+  }
+}
+
+/* ---------- Shimmer placeholder ---------- */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.optimized-image-wrapper img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .reveal,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
