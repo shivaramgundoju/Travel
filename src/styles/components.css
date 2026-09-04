@@ -3532,20 +3532,22 @@
   }
 
   .hero-content-wrapper {
-    padding-bottom: 24vh;
+    padding-bottom: 28vh;
     padding-left: var(--gutter);
     padding-right: var(--gutter);
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
 
   .hero-title {
-    font-size: clamp(30px, 9vw, 48px);
+    font-size: clamp(28px, 8.5vw, 44px);
     letter-spacing: 0;
-    line-height: 1.05;
+    line-height: 1.08;
     word-break: break-word;
     overflow-wrap: break-word;
-    hyphens: manual;
+    text-align: center;
+    max-width: 100%;
   }
 
   .hero-title .hero-title-line {
@@ -3563,6 +3565,7 @@
     letter-spacing: 0.22em;
     margin-bottom: 8px;
     text-align: center;
+    width: 100%;
   }
 
   .hero-summary-block {
@@ -3574,10 +3577,11 @@
   .hero-summary-block p {
     font-size: var(--fs-small);
     line-height: 1.55;
+    text-align: center;
   }
 
   .hero-search-form-block {
-    bottom: 16vh;
+    bottom: 14vh;
     padding-inline: 12px;
   }
 
@@ -3587,7 +3591,10 @@
     flex-direction: column;
     gap: 0;
     max-width: 100%;
-    background-color: rgba(11, 11, 11, 0.55);
+    background-color: rgba(11, 11, 11, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .search-form-block form {
@@ -3597,26 +3604,32 @@
   }
 
   .filter-field-block {
-    padding: 12px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .filter-field-block:last-of-type {
+    border-bottom: none;
   }
 
   .filter-field-subtitle {
     font-size: 10px;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 2px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
   }
 
   .filter-field-block select,
   .filter-field-block input {
     font-size: 15px;
-    min-height: 36px;
+    min-height: 32px;
     width: 100%;
+    color: var(--color-white);
   }
 
   .filter-devider {
-    width: 100%;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.15);
+    display: none;
   }
 
   .filter-submit-button {
@@ -3627,13 +3640,13 @@
   }
 
   .hero-cta-button {
-    bottom: 5vh;
+    bottom: 3vh;
   }
 
   .hero-cta-icon-block {
-    width: 48px;
-    height: 48px;
-    border-color: rgba(255, 255, 255, 0.25);
+    width: 44px;
+    height: 44px;
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   .hero-cta-text {
@@ -3668,10 +3681,12 @@
     transform: none;
     pointer-events: auto;
     padding: 20px;
+    z-index: 5;
   }
 
   .destinations_panel-content .destination-title-link {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 1.2;
   }
 
   .destinations_content-desc {
@@ -3966,10 +3981,11 @@
   }
 
   .page-hero-title {
-    font-size: clamp(26px, 7.5vw, 40px);
-    line-height: 1.05;
+    font-size: clamp(24px, 7vw, 38px);
+    line-height: 1.08;
     word-break: break-word;
     overflow-wrap: break-word;
+    text-align: left;
   }
 
   .page-hero-tagline {
@@ -3995,8 +4011,8 @@
   }
 
   .dd-hero-name {
-    font-size: clamp(32px, 9vw, 52px);
-    line-height: 1.05;
+    font-size: clamp(28px, 8.5vw, 48px);
+    line-height: 1.08;
     word-break: break-word;
     overflow-wrap: break-word;
   }
@@ -4093,11 +4109,13 @@
   }
 
   .cta-band-title {
-    font-size: clamp(22px, 5vw, 28px);
+    font-size: clamp(20px, 5vw, 26px);
+    line-height: 1.2;
   }
 
   .cta-band-text {
     font-size: var(--fs-small);
+    line-height: 1.55;
   }
 
   .cta-band-actions {
@@ -4282,14 +4300,15 @@
   }
 
   .hero-content-wrapper {
-    padding-bottom: 26vh;
+    padding-bottom: 30vh;
     padding-left: 14px;
     padding-right: 14px;
   }
 
   .hero-title {
-    font-size: clamp(26px, 8.5vw, 40px);
+    font-size: clamp(24px, 8vw, 36px);
     letter-spacing: -0.01em;
+    line-height: 1.1;
   }
 
   .hero-title .hero-title-line.is-accent {
@@ -4298,7 +4317,11 @@
 
   .hero-subtitle {
     font-size: 9px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-summary-block {
+    margin-top: var(--space-s);
   }
 
   .hero-summary-block p {
@@ -4307,8 +4330,22 @@
   }
 
   .hero-search-form-block {
-    bottom: 14vh;
+    bottom: 12vh;
     padding-inline: 10px;
+  }
+
+  .search-form-block {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .filter-field-block {
+    padding: 8px 0;
+  }
+
+  .filter-field-block select,
+  .filter-field-block input {
+    font-size: 14px;
   }
 
   .search-form-block {
