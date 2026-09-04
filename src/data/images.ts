@@ -3,7 +3,7 @@
  * Base URLs are stored; `photo(key, width)` appends responsive params.
  */
 export const BASE = {
-  hero: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4", // Dramatic aerial mountain valley landscape
+  hero: "https://images.unsplash.com/photo-1469474968028-56623f02e42e", // Scenic road through lush green landscape - travel journey
   charminar: "https://images.unsplash.com/photo-1741545979534-02f59c742730",
   charminarCrowd: "https://images.unsplash.com/photo-1711102230980-5f3001c1a07b",
   golconda: "https://images.unsplash.com/photo-1568484085354-4e6149a3e658",
@@ -67,7 +67,7 @@ export const BASE = {
 export type ImageKey = keyof typeof BASE;
 
 export const ALTS: Record<string, string> = {
-  hero: "A breathtaking aerial view of misty mountain valleys stretching to the horizon",
+  hero: "A winding road through lush green hills and mountains, evoking the spirit of travel and journey",
   charminar: "The Charminar, Hyderabad's iconic four-minaret monument",
   charminarCrowd: "Visitors in the lanes around the Charminar in old Hyderabad",
   golconda: "Golconda Fort's ramparts against the Deccan sky",

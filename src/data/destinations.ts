@@ -37,7 +37,7 @@ export const destinations: Destination[] = [
       "Today the twin city — old Hyderabad and modern Secunderabad — moves between centuries with effortless ease. You can spend a morning climbing Golconda's battlements, an afternoon lost in Salar Jung's museum of curiosities, and an evening eating dum biryani in a 60-year-old family kitchen. The culture is warm, the chai is strong, and the conversation always comes back to food.",
       "For first-timers, Hyderabad is the perfect Indian gateway: world-class hotels, a new international airport, and an old city that rewards slow, hungry wandering.",
     ],
-    image: "hero",
+    image: "charminar",
     gallery: ["charminar", "golconda", "hussainSagar", "laadBazaar", "oldCityMarket", "chai"],
     bestTime: [
       { months: "Oct – Mar", note: "The sweet spot. Pleasant days, cool evenings, perfect for the old city and forts." },
@@ -45,7 +45,7 @@ export const destinations: Destination[] = [
       { months: "Jul – Sep", note: "Monsoon greens the city; Golconda and Hussain Sagar look their most dramatic." },
     ],
     places: [
-      { name: "Charminar", blurb: "The four-minaret icon at the heart of old Hyderabad, best at golden hour.", image: "hero" },
+      { name: "Charminar", blurb: "The four-minaret icon at the heart of old Hyderabad, best at golden hour.", image: "charminar" },
       { name: "Golconda Fort", blurb: "A 13th-century citadel of gates, acoustics and sweeping Deccan views.", image: "golconda" },
       { name: "Chowmahalla Palace", blurb: "The seat of the Nizams, with crystal chandeliers and royal Durbar halls.", image: "fortGate" },
       { name: "Qutb Shahi Tombs", blurb: "Domed sandstone tombs of the dynasty that built the city.", image: "gwalior" },
@@ -353,7 +353,7 @@ export interface DestinationCard {
 }
 
 export const destinationCards: DestinationCard[] = [
-  { slug: "hyderabad", name: "Hyderabad", region: "South India", description: "Pearls, palaces and the world's most famous biryani.", image: "hero" },
+  { slug: "hyderabad", name: "Hyderabad", region: "South India", description: "Pearls, palaces and the world's most famous biryani.", image: "charminar" },
   { slug: "kerala", name: "Kerala", region: "South India", description: "Houseboats, tea hills and slow water.", image: "backwaters" },
   { slug: "goa", name: "Goa", region: "West India", description: "Beaches, churches and a slower clock.", image: "goaBeach" },
   { slug: "kashmir", name: "Kashmir", region: "North India", description: "The valley that rewrites beautiful.", image: "dalLake" },
